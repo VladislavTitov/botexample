@@ -66,6 +66,7 @@ public class ExampleBot extends TelegramLongPollingBot {
             SendMessage sendMessage = new SendMessage();
             sendMessage.enableMarkdown(true);
             sendMessage.setChatId(message.getChatId().toString());
+            //TODO Vlados smotri suda
             sendMessage.setText(XMLParser.parseXML(xml));
             try {
                 sendMessage(sendMessage);
@@ -74,6 +75,8 @@ public class ExampleBot extends TelegramLongPollingBot {
             }
 
         }
+
+
     }
 
     public String getBotUsername() {
