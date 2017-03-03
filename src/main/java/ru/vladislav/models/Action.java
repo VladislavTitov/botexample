@@ -1,6 +1,6 @@
 package ru.vladislav.models;
 
-public class Action implements AbstractAction {
+public class Action {
 
     private String title;
     private String description;
