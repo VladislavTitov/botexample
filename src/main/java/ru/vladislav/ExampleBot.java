@@ -6,10 +6,14 @@ import org.telegram.telegrambots.api.methods.GetFile;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.methods.send.SendVoice;
 import org.telegram.telegrambots.api.objects.*;
+import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
+import ru.vladislav.models.Action;
+import sun.plugin2.message.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class ExampleBot extends TelegramLongPollingBot {
@@ -27,16 +31,7 @@ public class ExampleBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.enableMarkdown(true);
-            sendMessage.setChatId(message.getChatId().toString());
-           /* sendMessage.setReplyToMessageId(message.getMessageId());*/
-            sendMessage.setText("This is my answer. I just repeat your phrases! You send: " + message.getText());
-            try {
-                sendMessage(sendMessage);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
+            initAndSendMessage(message,"This is my answer. I just repeat your phrases! You send: " + message.getText());
         }
         if (message != null && message.getVoice() != null) {
             Voice voice = message.getVoice();
@@ -63,19 +58,27 @@ public class ExampleBot extends TelegramLongPollingBot {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.enableMarkdown(true);
-            sendMessage.setChatId(message.getChatId().toString());
-            //TODO Vlados smotri suda
-            sendMessage.setText(XMLParser.parseXML(xml));
-            try {
-                sendMessage(sendMessage);
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
+
+            ArrayList<Action> actions = QueryParser.parseQuery(XMLParser.parseXML(xml));
+            for (Action action:actions) {
+                initAndSendMessage(message,action.getDescription()+ " " + action.getLink());
             }
 
         }
 
+    }
+    private void initAndSendMessage(Message message, String text){
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.enableMarkdown(true);
+        sendMessage.setChatId(message.getChatId().toString());
+
+        sendMessage.setText(text);
+
+        try {
+            sendMessage(sendMessage);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
 
     }
 
