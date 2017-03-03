@@ -10,6 +10,7 @@ import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import ru.vladislav.models.Action;
+import ru.vladislav.store.TerminActionsMapStore;
 import sun.plugin2.message.*;
 
 import java.io.IOException;
@@ -26,6 +27,7 @@ public class ExampleBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+        TerminActionsMapStore.initMap();
     }
 
     public void onUpdateReceived(Update update) {
