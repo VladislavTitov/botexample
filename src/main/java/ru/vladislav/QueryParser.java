@@ -10,7 +10,7 @@ import java.util.List;
 
 public class QueryParser {
 
-    ArrayList<Action> parseQuery(String query){
+    public static ArrayList<Action> parseQuery(String query){
         ArrayList<Action> result = new ArrayList<>();
         HashMap<String, List<Action>> map = TerminActionsMapStore.map;
 
