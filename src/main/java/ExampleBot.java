@@ -7,6 +7,8 @@ import org.telegram.telegrambots.api.objects.*;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
+import java.io.IOException;
+
 
 public class ExampleBot extends TelegramLongPollingBot {
 
@@ -52,7 +54,10 @@ public class ExampleBot extends TelegramLongPollingBot {
                 if (filepath != null) {
                     voiceMessage = downloadFile(filepath);
                 }
+                ApiProvider.doPost(voiceMessage);
             } catch (TelegramApiException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
             if (voiceMessage != null){

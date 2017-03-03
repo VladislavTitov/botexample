@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
@@ -17,20 +14,12 @@ public class ApiProvider {
     private static String apiKey = "8b2415ac-5b77-4b6e-b0e1-3496a8ffbf3c";
     private static String host = "asr.yandex.net";
 
-    public static void main(String[] args) {
-        try {
-            doPost();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    static String doPost(File voiceMessage) throws IOException {
 
-    static void doPost() throws IOException {
-
-        Path music = Paths.get("C://Users/Liia/Downloads/speech.wav");
+        Path music = Paths.get(voiceMessage.getAbsolutePath());
         byte[] byteArray = Files.readAllBytes(music);
         String uuid = "423a423a423a423a423a423a423a423a";
-        String urlParameters = "uuid=" + uuid + "&key=" + apiKey + "&topic=numbers&lang=ru-RU";
+        String urlParameters = "uuid=" + uuid + "&key=" + apiKey + "&topic=queries&lang=ru-RU";
 
         URL apiUrl = new URL("https://" + host + url + urlParameters);
 
@@ -38,18 +27,20 @@ public class ApiProvider {
 
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Host", host);
-        connection.setRequestProperty("Content-Type", "audio/x-speex");
+        connection.setRequestProperty("Content-Type", "audio/ogg;codecs=opus");
         connection.setDoOutput(true);
 
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        wr.writeBytes(String.valueOf(byteArray));
+        wr.write(byteArray);
         wr.flush();
         wr.close();
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 connection.getInputStream()));
         String inputLine;
+        StringBuilder builder = new StringBuilder();
         while ((inputLine = in.readLine()) != null)
-            System.out.println(inputLine);
+            builder.append(inputLine);
         in.close();
+        return builder.toString();
     }
 }
