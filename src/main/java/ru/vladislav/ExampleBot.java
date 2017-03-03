@@ -41,6 +41,7 @@ public class ExampleBot extends TelegramLongPollingBot {
         if (message != null && message.getVoice() != null) {
             Voice voice = message.getVoice();
             java.io.File voiceMessage = null;
+            String xml = "";
             try {
                 GetFile getFile = new GetFile();
                 getFile.setFileId(voice.getFileId());
@@ -55,25 +56,23 @@ public class ExampleBot extends TelegramLongPollingBot {
                 }
                 if (filepath != null) {
                     voiceMessage = downloadFile(filepath);
+                    xml = "" + ApiProvider.doPost(voiceMessage);
                 }
-
-                ApiProvider.doPost(voiceMessage);
-
             } catch (TelegramApiException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (voiceMessage != null) {
-                SendVoice sendVoice = new SendVoice();
-                sendVoice.setChatId(message.getChatId());
-                sendVoice.setNewVoice(voiceMessage);
-                try {
-                    sendVoice(sendVoice);
-                } catch (TelegramApiException e) {
-                    e.printStackTrace();
-                }
+            SendMessage sendMessage = new SendMessage();
+            sendMessage.enableMarkdown(true);
+            sendMessage.setChatId(message.getChatId().toString());
+            sendMessage.setText(XMLParser.parseXML(xml));
+            try {
+                sendMessage(sendMessage);
+            } catch (TelegramApiException e) {
+                e.printStackTrace();
             }
+
         }
     }
 

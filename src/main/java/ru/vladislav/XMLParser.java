@@ -14,16 +14,12 @@ public class XMLParser {
     private static final String EXCEPTION_MESSAGE = "exception";
 
 
-    public static String main(String[] args) {
+    public static String parseXML(String xml) {
         try {
-            String string = "<?xml version=\"1.0\" encoding=\"utf-8\"?><recognitionResults success=\"1\"> " +
-                    "<variant confidence=\"0.13\">пошел &lt;censored&gt;</variant>" +
-                    " <variant confidence=\"0.15\">пошел на &lt;censored&gt;</variant></recognitionResults>";
-
             DocumentBuilderFactory dbFactory
                     = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(new InputSource(new ByteArrayInputStream(string.getBytes("utf-8"))));
+            Document doc = dBuilder.parse(new InputSource(new ByteArrayInputStream(xml.getBytes("utf-8"))));
             doc.getDocumentElement().normalize();
 
             int successResult = Integer.parseInt(doc.getDocumentElement().getAttribute("success"));
