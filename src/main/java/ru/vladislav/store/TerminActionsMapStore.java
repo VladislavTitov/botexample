@@ -14,15 +14,30 @@ public class TerminActionsMapStore {
     public static void initMap(){
 
         List<Action> deposit = new ArrayList<>();
-        deposit.add(new Action("открыть", "Вы сказали открыть", "www.akbars.ru"));
-        deposit.add(new Action("закрыть", "Вы сказали закрыть", "www.akbars.ru"));
-        /*List<Action> credit;
-        List<Action> course;
-        List<Action> money;
-        List<Action> account;
-        List<Action> balance;*/
+        deposit.add(new Action("открыть", "Вы сказали открыть вклад", "www.akbars.ru"));
+        deposit.add(new Action("закрыть", "Вы сказали закрыть вклад", "www.akbars.ru"));
+        List<Action> credit = new ArrayList<>();
+        credit.add(new Action("взять", "Вы сказали взять кредит", "www.akbars.ru"));
+        credit.add(new Action("оплатить", "Вы сказали оплатить кредит", "www.akbars.ru"));
+        List<Action> course = new ArrayList<>();
+        course.add(new Action("посмотреть", "Вы сказали посмотреть курс", "www.akbars.ru"));
+        course.add(new Action("показать", "Вы сказали показать курс", "www.akbars.ru"));
+        List<Action> money = new ArrayList<>();
+        money.add(new Action("снять", "Вы сказали снять деньги", "www.akbars.ru"));
+        money.add(new Action("положить", "Вы сказали положить деньги", "www.akbars.ru"));
+        List<Action> account = new ArrayList<>();
+        account.add(new Action("посмотреть", "Вы сказали посмотреть счет", "www.akbars.ru"));
+        account.add(new Action("открыть", "Вы сказали открыть счет", "www.akbars.ru"));
+        account.add(new Action("закрыть", "Вы сказали закрыть счет", "www.akbars.ru"));
+        List<Action> balance = new ArrayList<>();
+        balance.add(new Action("посмотреть", "Вы сказали посмотреть баланс", "www.akbars.ru"));
 
         map.put("вклад", deposit);
+        map.put("кредит", credit);
+        map.put("курс", course);
+        map.put("деньг", money);
+        map.put("курс", account);
+        map.put("баланс", balance);
 
     }
 
