@@ -24,7 +24,6 @@ public class TerminActionsMapStore {
         credit.add(new Action("оплат", "Информация о кредитах здесь: ", "https://www.akbars.ru/individuals/credits/"));
 
         List<Action> course = new ArrayList<>();
-        course.add(new Action("посмотреть", "Актуальный курс: ", "https://www.akbars.ru/individuals/exchange/"));
         course.add(new Action("показать", "Актуальный курс: ", "https://www.akbars.ru/individuals/exchange/"));
 
         List<Action> akBarsOnline = new ArrayList<>();
