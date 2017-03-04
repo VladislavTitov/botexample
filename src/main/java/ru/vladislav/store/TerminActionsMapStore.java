@@ -11,34 +11,40 @@ public class TerminActionsMapStore {
     //TODO populate map
     public static HashMap<String, List<Action>> map = new HashMap<>();
 
-    public static void initMap(){
+    public static void initMap() {
 
-        List<Action> deposit = new ArrayList<>();
-        deposit.add(new Action("открыть", "Вы сказали открыть вклад", "www.akbars.ru"));
-        deposit.add(new Action("закрыть", "Вы сказали закрыть вклад", "www.akbars.ru"));
+        List<Action> card = new ArrayList<>();
+        card.add(new Action("открыт", "Информация о картах здесь: ", "https://www.akbars.ru/individuals/card/debit_cards/#card=tab1"));
+        card.add(new Action("получить", "Информация о картах здесь: ", "https://www.akbars.ru/individuals/card/debit_cards/#card=tab1"));
+
         List<Action> credit = new ArrayList<>();
-        credit.add(new Action("взять", "Вы сказали взять кредит", "www.akbars.ru"));
-        credit.add(new Action("оплатить", "Вы сказали оплатить кредит", "www.akbars.ru"));
-        List<Action> course = new ArrayList<>();
-        course.add(new Action("посмотреть", "Вы сказали посмотреть курс", "www.akbars.ru"));
-        course.add(new Action("показать", "Вы сказали показать курс", "www.akbars.ru"));
-        List<Action> money = new ArrayList<>();
-        money.add(new Action("снять", "Вы сказали снять деньги", "www.akbars.ru"));
-        money.add(new Action("положить", "Вы сказали положить деньги", "www.akbars.ru"));
-        List<Action> account = new ArrayList<>();
-        account.add(new Action("посмотреть", "Вы сказали посмотреть счет", "www.akbars.ru"));
-        account.add(new Action("открыть", "Вы сказали открыть счет", "www.akbars.ru"));
-        account.add(new Action("закрыть", "Вы сказали закрыть счет", "www.akbars.ru"));
-        List<Action> balance = new ArrayList<>();
-        balance.add(new Action("посмотреть", "Вы сказали посмотреть баланс", "www.akbars.ru"));
+        credit.add(new Action("получить", "Информация о кредитах здесь: ", "https://www.akbars.ru/individuals/credits/"));
+        credit.add(new Action("взять", "Информация о кредитах здесь: ", "https://www.akbars.ru/individuals/credits/"));
+        credit.add(new Action("закрыт", "Информация о кредитах здесь: ", "https://www.akbars.ru/individuals/credits/"));
+        credit.add(new Action("оплат", "Информация о кредитах здесь: ", "https://www.akbars.ru/individuals/credits/"));
 
-        map.put("вклад", deposit);
+
+        List<Action> course = new ArrayList<>();
+        course.add(new Action("посмотреть", "Актуальный курс: ", "https://www.akbars.ru/individuals/exchange/"));
+        course.add(new Action("показать", "Актуальный курс: ", "https://www.akbars.ru/individuals/exchange/"));
+
+        List<Action> akBarsOnline = new ArrayList<>();
+        akBarsOnline.add(new Action("зайти", "Зайти или зарегистрироваться в личном кабинете: ", "https://online.akbars.ru/wb/#login"));
+        akBarsOnline.add(new Action("зарегистрировать", "Зайти или зарегистрироваться в личном кабинете: ", "https://online.akbars.ru/wb/#login"));
+
+        List<Action> contribution = new ArrayList<>();
+        contribution.add(new Action("открыть", "Информация по вкладам", "https://www.akbars.ru/individuals/deposits/"));
+        contribution.add(new Action("закрыть", "Информация по вкладам", "https://www.akbars.ru/individuals/deposits/"));
+
+        List<Action> transfer = new ArrayList<Action>();
+        transfer.add(new Action("с карты", "Информация по переводам", "https://www.akbars.ru/individuals/transfers/"));
+        transfer.add(new Action("на карту", "Информация по переводам", "https://www.akbars.ru/individuals/transfers/"));
+
+        map.put("карт", card);
         map.put("кредит", credit);
         map.put("курс", course);
-        map.put("деньг", money);
-        map.put("курс", account);
-        map.put("баланс", balance);
-
+        map.put("кабинет", akBarsOnline);
+        map.put("вклад", contribution);
+        map.put("перевод", transfer);
     }
-
 }

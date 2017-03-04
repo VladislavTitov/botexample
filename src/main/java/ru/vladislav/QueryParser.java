@@ -9,26 +9,34 @@ import java.util.List;
 
 public class QueryParser {
 
-    public static ArrayList<Action> parseQuery(String query){
+    public static ArrayList<Action> parseQuery(String query) {
         ArrayList<Action> result = new ArrayList<>();
         HashMap<String, List<Action>> map = TerminActionsMapStore.map;
 
-
-        for (String key:map.keySet()) {
-            if(query.contains(key)){
+        for (String key : map.keySet()) {
+            if (query.contains(key)) {
                 ArrayList<Action> actionsList = (ArrayList<Action>) map.get(key);
 
-                for (Action action: actionsList) {
-                    if (query.contains(action.getTitle())){
+                int i = 0;
+                for (Action action : actionsList) {
+                    if (query.contains(action.getTitle())) {
                         result.add(action);
+                        i++;
                     }
                 }
+
+                if (i == 0) {
+                    result.addAll(actionsList);
+                }
+
             }
+        }
+        if (result.size() < 1) {
+            result.add(new Action("Некорректный запрос!",
+                    "Я не смог распознать ваши слова, сформулируйте, пожалуйста, по-другому!",
+                    ""));
         }
 
         return result;
     }
-
-    
-
 }

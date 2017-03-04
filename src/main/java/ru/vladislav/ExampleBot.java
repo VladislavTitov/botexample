@@ -33,7 +33,7 @@ public class ExampleBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
-            initAndSendMessage(message,"This is my answer. I just repeat your phrases! You send: " + message.getText());
+            initAndSendMessage(message, "This is my answer. I just repeat your phrases! You send: " + message.getText());
         }
         if (message != null && message.getVoice() != null) {
             Voice voice = message.getVoice();
@@ -62,14 +62,13 @@ public class ExampleBot extends TelegramLongPollingBot {
             }
 
             ArrayList<Action> actions = QueryParser.parseQuery(XMLParser.parseXML(xml));
-            for (Action action:actions) {
-                initAndSendMessage(message,action.getDescription()+ " " + action.getLink());
+            for (Action action : actions) {
+                initAndSendMessage(message, action.getDescription() + " " + action.getLink());
             }
-
         }
-
     }
-    private void initAndSendMessage(Message message, String text){
+
+    private void initAndSendMessage(Message message, String text) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(message.getChatId().toString());
@@ -81,7 +80,6 @@ public class ExampleBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
     }
 
     public String getBotUsername() {
