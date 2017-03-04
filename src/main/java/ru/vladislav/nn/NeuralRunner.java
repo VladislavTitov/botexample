@@ -5,7 +5,7 @@ import org.neuroph.core.NeuralNetwork;
 /**
  * Created by Dmitry on 04.03.2017.
  */
-public class TestZap {
+public class NeuralRunner {
 
     public static double[] startNN(double[] input) {
         NeuralNetwork neuralNetwork=NeuralNetwork.load("testnn.nnet");

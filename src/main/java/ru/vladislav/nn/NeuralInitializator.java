@@ -9,8 +9,9 @@ import org.neuroph.util.TransferFunctionType;
 /**
  * Created by Dmitry on 04.03.2017.
  */
-public class Ntest {
-    public static void main(String[] args) {
+public class NeuralInitializator {
+
+    public static void initNN() {
         NeuralNetwork neuralNetwork = new Perceptron(5, 5, TransferFunctionType.SIGMOID);
         DataSet trainingSet = new DataSet(5, 5);
         trainingSet.addRow(new DataSetRow(new double[] {1,0,0,0,0}, new double[] {0.5,0,0,1,0}));
