@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class QueryForNNParser {
 
-    double[] parse(String query) {
+    public static double[] parse(String query) {
         ArrayList<String> dictionary = DictionaryList.getDictionary();
         int capacity = dictionary.size();
 

@@ -10,6 +10,9 @@ import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import ru.vladislav.models.Action;
+import ru.vladislav.nn.AnswerMapper;
+import ru.vladislav.nn.NeuralRunner;
+import ru.vladislav.nn.QueryForNNParser;
 import ru.vladislav.store.TerminActionsMapStore;
 import sun.plugin2.message.*;
 
@@ -37,10 +40,12 @@ public class ExampleBot extends TelegramLongPollingBot {
                 initAndSendMessage(message, "Disclaimer!");
                 return;
             }
-            ArrayList<Action> actions = QueryParser.parseQuery(message.getText().toLowerCase());
+            /*ArrayList<Action> actions = QueryParser.parseQuery(message.getText().toLowerCase());
             for (Action action:actions) {
                 initAndSendMessage(message,action.getDescription()+ " " + action.getLink());
-            }
+            }*/
+            String answer = AnswerMapper.getAnswer(NeuralRunner.startNN(QueryForNNParser.parse(message.getText())));
+            initAndSendMessage(message, answer);
         }
         if (message != null && message.getVoice() != null) {
             Voice voice = message.getVoice();
@@ -70,10 +75,14 @@ public class ExampleBot extends TelegramLongPollingBot {
                 e.printStackTrace();
             }
 
-            ArrayList<Action> actions = QueryParser.parseQuery(XMLParser.parseXML(xml));
+            /*ArrayList<Action> actions = QueryParser.parseQuery(XMLParser.parseXML(xml));
             for (Action action : actions) {
                 initAndSendMessage(message, action.getDescription() + " " + action.getLink());
-            }
+            }*/
+
+            String answer = AnswerMapper.getAnswer(NeuralRunner.startNN(QueryForNNParser.parse(XMLParser.parseXML(xml))));
+            initAndSendMessage(message, answer);
+
         }
     }
 
