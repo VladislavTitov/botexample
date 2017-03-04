@@ -23,7 +23,6 @@ public class TerminActionsMapStore {
         credit.add(new Action("закрыт", "Информация о кредитах здесь: ", "https://www.akbars.ru/individuals/credits/"));
         credit.add(new Action("оплат", "Информация о кредитах здесь: ", "https://www.akbars.ru/individuals/credits/"));
 
-
         List<Action> course = new ArrayList<>();
         course.add(new Action("посмотреть", "Актуальный курс: ", "https://www.akbars.ru/individuals/exchange/"));
         course.add(new Action("показать", "Актуальный курс: ", "https://www.akbars.ru/individuals/exchange/"));
@@ -46,5 +45,7 @@ public class TerminActionsMapStore {
         map.put("кабинет", akBarsOnline);
         map.put("вклад", contribution);
         map.put("перевод", transfer);
+        map.put("перевести", transfer);
+
     }
 }

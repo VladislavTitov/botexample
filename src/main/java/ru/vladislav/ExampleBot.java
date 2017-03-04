@@ -33,7 +33,14 @@ public class ExampleBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
-            initAndSendMessage(message, "This is my answer. I just repeat your phrases! You send: " + message.getText());
+            if (message.getText().equals("/start") || message.getText().equals("/help")){
+                initAndSendMessage(message, "Disclaimer!");
+                return;
+            }
+            ArrayList<Action> actions = QueryParser.parseQuery(message.getText());
+            for (Action action:actions) {
+                initAndSendMessage(message,action.getDescription()+ " " + action.getLink());
+            }
         }
         if (message != null && message.getVoice() != null) {
             Voice voice = message.getVoice();
