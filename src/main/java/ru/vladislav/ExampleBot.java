@@ -37,14 +37,16 @@ public class ExampleBot extends TelegramLongPollingBot {
                 initAndSendMessage(message, "Disclaimer!");
                 return;
             }
-            ArrayList<Action> actions = QueryParser.parseQuery(message.getText());
+            ArrayList<Action> actions = QueryParser.parseQuery(message.getText().toLowerCase());
             for (Action action:actions) {
                 initAndSendMessage(message,action.getDescription()+ " " + action.getLink());
             }
         }
         if (message != null && message.getVoice() != null) {
             Voice voice = message.getVoice();
+            System.out.println(voice.getMimeType());
             java.io.File voiceMessage = null;
+
             String xml = "";
             try {
                 GetFile getFile = new GetFile();
@@ -81,6 +83,7 @@ public class ExampleBot extends TelegramLongPollingBot {
         sendMessage.setChatId(message.getChatId().toString());
 
         sendMessage.setText(text);
+        System.out.println(text);
 
         try {
             sendMessage(sendMessage);
