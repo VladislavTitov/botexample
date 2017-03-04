@@ -12,14 +12,38 @@ import org.neuroph.util.TransferFunctionType;
 public class NeuralInitializator {
 
     public static void initNN() {
-        NeuralNetwork neuralNetwork = new Perceptron(5, 5, TransferFunctionType.SIGMOID);
-        DataSet trainingSet = new DataSet(5, 5);
-        trainingSet.addRow(new DataSetRow(new double[] {1,0,0,0,0}, new double[] {0.5,0,0,1,0}));
-        trainingSet.addRow(new DataSetRow(new double[] {0,1,0,0,0}, new double[] {0.5,0,0,0,0}));
-        trainingSet.addRow(new DataSetRow(new double[] {0,0,1,0,0}, new double[] {0,0,1,0,0}));
-        trainingSet.addRow(new DataSetRow(new double[] {0,0,0,1,0}, new double[] {0,0,0.5,0,1}));
-        trainingSet.addRow(new DataSetRow(new double[] {0,0,0,0,1}, new double[] {0,1,0,0,0}));
-        trainingSet.addRow(new DataSetRow(new double[] {1,0,1,0,0}, new double[] {0.5,0,0.5,0,0}));
+        System.out.println("initialization nn");
+        NeuralNetwork neuralNetwork = new Perceptron(19, 17, TransferFunctionType.SIGMOID);
+        DataSet trainingSet = new DataSet(19, 17);
+                                                    ///1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19                1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
+        trainingSet.addRow(new DataSetRow(new double[]{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0}));
+        trainingSet.addRow(new DataSetRow(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}));
+
+
+//        trainingSet.addRow(new DataSetRow(new double[] {1,0,0,0,0}, new double[] {0,0,0,1,0}));
+//        trainingSet.addRow(new DataSetRow(new double[] {0,1,0,0,0}, new double[] {0,0,0,0,0}));
+//        trainingSet.addRow(new DataSetRow(new double[] {0,0,1,0,0}, new double[] {0,0,1,0,0}));
+//        trainingSet.addRow(new DataSetRow(new double[] {0,0,0,1,0}, new double[] {0,0,0,0,1}));
+//        trainingSet.addRow(new DataSetRow(new double[] {0,0,0,0,1}, new double[] {0,1,0,0,0}));
+//        trainingSet.addRow(new DataSetRow(new double[] {1,0,1,0,0}, new double[] {0,0,0,0,0}));
         neuralNetwork.learn(trainingSet);
         neuralNetwork.save("testnn.nnet");
     }

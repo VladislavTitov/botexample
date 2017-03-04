@@ -11,10 +11,8 @@ public class DictionaryList {
     private static final List<String> queryDictionary = new ArrayList<String>() {
         {
             add("карт");
-            add("открыть");
-            add("получить");
+            add("мал");
             add("кредит");
-            add("выплата");
             add("курс");
             add("кабинет");
             add("йти");
@@ -27,7 +25,6 @@ public class DictionaryList {
             add("перевести");
             add("филиал");
             add("акци");
-            add("посмотреть");
             add("золот");
             add("серебр");
             add("бронз");
@@ -36,22 +33,23 @@ public class DictionaryList {
     };
 
     private static final List<String> answers = new ArrayList<String>() {{
-        add("Информация о картах здесь: https://www.akbars.ru/individuals/card/");
-        add("Найти нужную карту: https://www.akbars.ru/individuals/card/service-selection/");
-        add("Актуальный курс: https://www.akbars.ru/individuals/exchange/");
-        add("Зайти или зарегистрироваться в личном кабинете: https://online.akbars.ru/wb/#login");
-        add("Информация по переводам: https://www.akbars.ru/individuals/transfers/");
-        add("Местоположения филиалов: https://www.akbars.ru/about/general/branches/");
-        add("Информация об акциях: https://www.akbars.ru/all-action/arhiv/");
-        add("Информация о тарифах: https://www.akbars.ru/banks/correspondent/rates/");
-        add("Информация о кредитах: https://www.akbars.ru/corporate/credits/");
-        add("Кредиты для малого бизнеса: https://www.akbars.ru/corporate/credits/small-business/");
-        add("Варианты кредитов: https://www.akbars.ru/individuals/credits/consume/");
-        add("Зарегистрироваться в личном кабинете: https://online.akbars.ru/wb/#enrollment");
-        add("Информация по вкладам: https://www.akbars.ru/individuals/deposits/");
-        add("Страхование вкладов: https://www.akbars.ru/individuals/deposits/insurance/");
-        add("Завещание вкладов: https://www.akbars.ru/individuals/deposits/will-deposit/");
-        add("Информация о драгоценных металлах: https://www.akbars.ru/banks/gold/");
+        add("Информация о картах здесь: https://www.akbars.ru/individuals/card/");//1
+        add("Найти нужную карту: https://www.akbars.ru/individuals/card/service-selection/"); //2
+        add("Актуальный курс: https://www.akbars.ru/individuals/exchange/"); //3
+        add("Войти в личный кабинет: https://online.akbars.ru/wb/#login"); //4
+        add("Зарегистрироваться в личном кабинете: https://online.akbars.ru/wb/#enrollment"); //5
+        add("Информация по переводам: https://www.akbars.ru/individuals/transfers/"); //6
+        add("Местоположения филиалов: https://www.akbars.ru/about/general/branches/"); //7
+        add("Информация об акциях: https://www.akbars.ru/all-action/arhiv/"); //8
+        add("Информация о тарифах: https://www.akbars.ru/banks/correspondent/rates/"); //9
+        add("Информация о кредитах: https://www.akbars.ru/corporate/credits/"); //10
+        add("Кредиты для малого бизнеса: https://www.akbars.ru/corporate/credits/small-business/"); //11
+        add("Варианты кредитов: https://www.akbars.ru/individuals/credits/consume/"); //12
+        add("Информация по вкладам: https://www.akbars.ru/individuals/deposits/"); //13
+        add("Страхование вкладов: https://www.akbars.ru/individuals/deposits/insurance/"); //14
+        add("Завещание вкладов: https://www.akbars.ru/individuals/deposits/will-deposit/"); //15
+        add("Информация о драгоценных металлах: https://www.akbars.ru/banks/gold/"); //16
+        add("Я не распознал ваш запрос. Сформулируйте, пожалуйста, по-другому!"); //17
     }};
 
     public static List<String> getQueryDictionary() {

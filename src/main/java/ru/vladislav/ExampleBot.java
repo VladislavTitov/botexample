@@ -11,6 +11,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import ru.vladislav.models.Action;
 import ru.vladislav.nn.AnswerMapper;
+import ru.vladislav.nn.NeuralInitializator;
 import ru.vladislav.nn.NeuralRunner;
 import ru.vladislav.nn.QueryForNNParser;
 import ru.vladislav.store.TerminActionsMapStore;
@@ -31,6 +32,7 @@ public class ExampleBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
         TerminActionsMapStore.initMap();
+        NeuralInitializator.initNN();
     }
 
     public void onUpdateReceived(Update update) {
