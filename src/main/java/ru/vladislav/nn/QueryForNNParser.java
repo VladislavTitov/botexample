@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class QueryForNNParser {
 
-    double[] parse(String query) {
+    public static double[] parse(String query) {
         List<String> dictionary = DictionaryList.getQueryDictionary();
         int capacity = dictionary.size();
 

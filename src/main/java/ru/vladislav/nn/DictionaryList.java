@@ -38,7 +38,7 @@ public class DictionaryList {
 
     private static final List<String> answers = new ArrayList<String>() {{
         add("Информация о картах здесь: https://www.akbars.ru/individuals/card/");
-        add("Найти нужную карту: https://www.akbars.ru/individuals/card/service-selection/");
+        add("Найти нужную картуhttps://www.akbars.ru/individuals/card/service-selection/");
         add("Актуальный курс: https://www.akbars.ru/individuals/exchange/");
         add("Зайти или зарегистрироваться в личном кабинете: https://online.akbars.ru/wb/#login");
         add("Информация по переводам: https://www.akbars.ru/individuals/transfers/");
