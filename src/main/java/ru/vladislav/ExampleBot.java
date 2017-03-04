@@ -39,14 +39,15 @@ public class ExampleBot extends TelegramLongPollingBot {
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
             if (message.getText().equals("/start") || message.getText().equals("/help")){
-                initAndSendMessage(message, "Disclaimer!");
+                initAndSendMessage(message, "Здравствуйте!\nВы можете отправлять свои вопросы " +
+                        "в виде текстовых или голосовых сообщений.");
                 return;
             }
             /*ArrayList<Action> actions = QueryParser.parseQuery(message.getText().toLowerCase());
             for (Action action:actions) {
                 initAndSendMessage(message,action.getDescription()+ " " + action.getLink());
             }*/
-            String answer = AnswerMapper.getAnswer(NeuralRunner.startNN(QueryForNNParser.parse(message.getText())));
+            String answer = AnswerMapper.getAnswer(NeuralRunner.startNN(QueryForNNParser.parse(message.getText().toLowerCase())));
             initAndSendMessage(message, answer);
         }
         if (message != null && message.getVoice() != null) {

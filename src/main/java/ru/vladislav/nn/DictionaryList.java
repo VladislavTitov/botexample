@@ -49,7 +49,7 @@ public class DictionaryList {
         add("Страхование вкладов: https://www.akbars.ru/individuals/deposits/insurance/"); //14
         add("Завещание вкладов: https://www.akbars.ru/individuals/deposits/will-deposit/"); //15
         add("Информация о драгоценных металлах: https://www.akbars.ru/banks/gold/"); //16
-        add("Я не распознал ваш запрос. Сформулируйте, пожалуйста, по-другому!"); //17
+        add("Я не распознал ваш запрос. Попробуйте сформулировать вопрос по-другому или обратитесь за помощью к сотруднику банка!"); //17
     }};
 
     public static List<String> getQueryDictionary() {
